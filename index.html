@@ -54,10 +54,28 @@
         .content a:hover {
             background-color: #0056b3;
         }
-        .coin-address {
+        .coin-address-container {
             margin-top: 20px;
+            display: block;
+            text-align: center;
+        }
+        .coin-address {
             font-size: 1.2em;
             color: #007bff;
+            margin-bottom: 10px;
+        }
+        .copy-button {
+            padding: 5px 10px;
+            font-size: 1em;
+            border: none;
+            background-color: #007bff;
+            color: white;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .copy-button:hover {
+            background-color: #0056b3;
         }
         footer {
             background-color: #333;
@@ -69,16 +87,30 @@
 <body>
     <header>
         <h1>Support Pete Hegseth Coin</h1>
-        <p></p>
+        <p>Your trusted meme coin</p>
     </header>
     <div class="logo" style="background-image: url('./logo.jpg');"></div>
     <div class="content">
         <a href="https://x.com/Support_P_H" target="_blank">Follow on Twitter</a>
         <a href="https://t.me/herooelon" target="_blank">Join Telegram</a>
-        <p class="coin-address">Coin Address: </p>
+        <div class="coin-address-container">
+            <p class="coin-address" id="coin-address">Coin Address: DG4aVfzWxURjYYmeHFjYJ2E4uxc7u3r33rAemZ6PTFCG</p>
+            <button class="copy-button" onclick="copyAddress()">Скопировать</button>
+        </div>
     </div>
     <footer>
         <p>© 2025 Support Pete Hegseth Coin. All rights reserved.</p>
     </footer>
+
+    <script>
+        function copyAddress() {
+            const addressText = 'DG4aVfzWxURjYYmeHFjYJ2E4uxc7u3r33rAemZ6PTFCG';
+            navigator.clipboard.writeText(addressText).then(() => {
+                alert('Адрес скопирован в буфер обмена!');
+            }).catch(err => {
+                console.error('Ошибка копирования: ', err);
+            });
+        }
+    </script>
 </body>
 </html>
